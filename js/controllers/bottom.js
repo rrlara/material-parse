@@ -2,7 +2,7 @@
  * Created by renerodriguez on 4/22/15.
  */
 
-var app = angular.module('StarterApp');
+var app = angular.module('leapspot');
 
 app.controller('ListBottomSheetCtrl', ['$scope', '$mdSidenav', '$http', function($scope, $mdSidenav, $http){
     $scope.items = [
