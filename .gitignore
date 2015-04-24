@@ -20,3 +20,6 @@ workspace.xml
 tasks.xml
 *.iml
 .idea/
+
+############## Parse Keys ###############
+config.js

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html ng-app="leapspot">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>AngularJS Plunker</title>
+    <script>document.write('<base href="' + document.location + '" />');</script>
+
+      <link rel="stylesheet" href="./css/angular-material.min.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.css' rel='stylesheet' />
+
+      <!--<script data-require="angular.js@1.1.x" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.js" data-semver="1.1.5"></script>-->
+      <script src="./js/angular.min.js"></script>
+
+    <script src="http://www.parsecdn.com/js/parse-1.2.15.min.js"></script>
+
+
+    <script src="node_modules/angularparse/angularparse.js"></script>
+    <script src="js/vendors/angular-leaflet-directive.min.js"></script>
+
+
+      <script src="./js/angular-animate.min.js"></script>
+      <script src="./js/angular-aria.min.js"></script>
+
+      <script src="./js/angular-material.min.js"></script>
+
+
+      <script src="config.js"></script>
+    <script src="app.js"></script>
+
+
+
+      <script src="js/controllers/leafletcontroller.js" type="text/javascript"></script>
+      <script src="js/services.js" type="text/javascript"></script>
+
+
+  </head>
+
+  <!--<body ng-controller="MainCtrl">-->
+  <!--<div class="container">-->
+        <!--<div id="map-wrapper">-->
+              <!--<div id="map"></div>-->
+        <!--</div>-->
+        <!--<div class="listContainer">-->
+            <!--<button ng-click="add()">Add item</button>-->
+            <!--<button ng-click="find()">Find all</button>-->
+            <!--<p ng-show="data.items.length > 0">Showing {{data.items.length}} of {{data.total}} </p>-->
+            <!--<ul>-->
+              <!--<li ng-repeat="item in data.items"><img src="{{item.attributes.imageFile._url}}" alt="Smiley face" width="400">(#{{item.attributes.comment}}) {{item.createdAt}} - <a href="#" ng-click="destroy(item)">destroy</a></li>-->
+            <!--</ul>-->
+        <!--</div>-->
+
+  <!--</div>-->
+  <body layout="column" ng-controller="AppCtrl">
+
+  <div layout="column" layout-fill>
+      <!--<md-toolbar md-scroll-shrink class="md-tall">-->
+      <!--<div id="map" ng-controller="MapCtrl"></div>-->
+      <!--</md-toolbar>-->
+      <md-toolbar class="md-default-theme">
+          <div class="md-toolbar-tools">
+              <button ng-click="find()">Find all</button>
+          </div>
+      </md-toolbar>
+      <div layout="column" id="content">
+
+
+          <!--<md-toolbar class="md-default-theme">-->
+          <!--<div class="md-toolbar-tools">-->
+          <!--<div id="map" ng-controller="MapCtrl"></div>-->
+          <!--</div>-->
+          <!--</md-toolbar>-->
+
+          <md-content>
+              <md-card ng-repeat="item in data.items">
+                  <!--<img src="./img/falls.jpg" class="md-card-image" alt="Washed Out">-->
+                  <img src="{{item.attributes.thumbnail._url}}" alt="Smiley face" width="400">(#{{item.attributes.comment}}) {{item.createdAt}}
+                  <md-card-content>
+                      <h2 class="md-title">Paracosm</h2>
+                      <p>
+                          The titles of Washed Out's breakthrough song and the first single from Paracosm share the
+                          two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
+                      </p>
+                  </md-card-content>
+                  <md-action-bar layout="row" layout-align="end center">
+                      <md-button ng-click="toggleSidenav('right')">Action 1</md-button>
+                      <md-button ng-click="showListBottomSheet($event)">Action 2</md-button>
+                  </md-action-bar>
+              </md-card>
+          </md-content>
+          <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+              <md-toolbar class="md-theme-light">
+                  <h1 class="md-toolbar-tools">Sidenav Right</h1>
+              </md-toolbar>
+              <md-content layout-padding>
+                  <form>
+                      <md-input-container>
+                          <!--<label for="testInput">Test input</label>-->
+                          <!--<input type="text" id="testInput"-->
+                          <!--ng-model="data" md-sidenav-focus>-->
+                      </md-input-container>
+                  </form>
+                  <md-button ng-click="close()" class="md-primary">
+                      Close Sidenav Right
+                  </md-button>
+              </md-content>
+          </md-sidenav>
+      </div>
+  </div>
+    
+  </body>
+
+</html>
