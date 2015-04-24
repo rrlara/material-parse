@@ -4,7 +4,7 @@
 
 var app = angular.module('leapspot');
 
-app.controller('AppCtrl', ['$scope', '$mdSidenav', '$mdBottomSheet', '$rootScope', function($scope, $mdSidenav, $mdBottomSheet, $rootScope){
+app.controller('ContentCtrl', ['$scope', '$mdSidenav', '$mdBottomSheet', '$rootScope', function($scope, $mdSidenav, $mdBottomSheet, $rootScope){
     $scope.toggleSidenav = function(menuId) {
         $mdSidenav(menuId).toggle();
     };
