@@ -30,20 +30,23 @@
 
 
       <script src="config.js"></script>
-    <script src="app.js"></script>
+      <script src="app.js"></script>
 
 
 
-      <!--<script src="js/controllers/leafletcontroller.js" type="text/javascript"></script>-->
-      <script src="js/controllers/content.js" type="text/javascript"></script>
-      <script src="js/controllers/bottom.js" type="text/javascript"></script>
+
+      <script src="./js/controllers/content.js" type="text/javascript"></script>
+      <script src="./js/controllers/bottom.js" type="text/javascript"></script>
+
+      <script src="./js/services.js" type="text/javascript"></script>
+
 
 
 
   </head>
 
   <!--</div>-->
-  <body layout="column" ng-controller="AppCtrl">
+  <body layout="column" ng-controller="ContentCtrl">
 
   <div layout="column" layout-fill>
       <md-toolbar class="md-default-theme">
@@ -54,7 +57,7 @@
       </md-toolbar>
       <div layout="column" id="content">
 
-          <md-content ng-controller="ContentCtrl">
+          <md-content >
               <md-card ng-repeat="item in data.items">
                   <!--<img src="./img/falls.jpg" class="md-card-image" alt="Washed Out">-->
                   <img src="{{item.attributes.thumbnail._url}}" alt="Smiley face" width="400">(#{{item.attributes.comment}}) {{item.createdAt}}
