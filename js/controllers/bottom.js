@@ -23,7 +23,10 @@ app.controller('ListBottomSheetCtrl', ['$scope', '$window', '$rootScope', functi
 
     console.log($scope.popupHeight);
 
-    $scope.staticMap = 'https://api.tiles.mapbox.com/v4/examples.map-zr0njcqy/pin-l-park+482('+$rootScope.clickedItem.longitude+','+$rootScope.clickedItem.latitude+')/'+$rootScope.clickedItem.longitude+','+$rootScope.clickedItem.latitude+',13/'+ $scope.popupWidth + 'x' + $scope.popupHeight + '.png?access_token=pk.eyJ1IjoicnJsYXJhIiwiYSI6IkplNEFnUVUifQ.e5zd5QyoERZ2IHX0EU5pwg';
+    //$scope.staticMap = 'https://api.tiles.mapbox.com/v4/examples.map-zr0njcqy/pin-l-park+482('+$rootScope.clickedItem.longitude+','+$rootScope.clickedItem.latitude+')/'+$rootScope.clickedItem.longitude+','+$rootScope.clickedItem.latitude+',13/'+ $scope.popupWidth + 'x' + $scope.popupHeight + '.png?access_token=pk.eyJ1IjoicnJsYXJhIiwiYSI6IjNjSlJmUkkifQ.PlJc5PGK-7-EDMmsfqYKfg';
+
+    $scope.staticMap = 'https://maps.googleapis.com/maps/api/staticmap?center='+$rootScope.clickedItem.latitude+','+$rootScope.clickedItem.longitude+'&maptype=terrain&zoom=13&size='+$scope.popupWidth+'x'+$scope.popupWidth+'\
+&markers=color:red%7Clabel:S%7C'+$rootScope.clickedItem.latitude+',' +$rootScope.clickedItem.longitude;
 
 
 
