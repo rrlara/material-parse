@@ -25,7 +25,7 @@ app.controller('ListBottomSheetCtrl', ['$scope', '$window', '$rootScope', functi
 
     //$scope.staticMap = 'https://api.tiles.mapbox.com/v4/examples.map-zr0njcqy/pin-l-park+482('+$rootScope.clickedItem.longitude+','+$rootScope.clickedItem.latitude+')/'+$rootScope.clickedItem.longitude+','+$rootScope.clickedItem.latitude+',13/'+ $scope.popupWidth + 'x' + $scope.popupHeight + '.png?access_token=pk.eyJ1IjoicnJsYXJhIiwiYSI6IjNjSlJmUkkifQ.PlJc5PGK-7-EDMmsfqYKfg';
 
-    $scope.staticMap = 'https://maps.googleapis.com/maps/api/staticmap?center='+$rootScope.clickedItem.latitude+','+$rootScope.clickedItem.longitude+'&maptype=terrain&scale=2&zoom=12&size='+$scope.popupWidth+'x'+$scope.popupWidth+'\
+    $scope.staticMap = 'https://maps.googleapis.com/maps/api/staticmap?center='+$rootScope.clickedItem.latitude+','+$rootScope.clickedItem.longitude+'&maptype=terrain&scale=2&zoom=13&size='+$scope.popupWidth+'x'+$scope.popupWidth+'\
 &markers=color:red%7Clabel:S%7C'+$rootScope.clickedItem.latitude+',' +$rootScope.clickedItem.longitude;
 
 
