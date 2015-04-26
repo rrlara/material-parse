@@ -59,5 +59,13 @@ app.controller('ContentCtrl', function($scope, $rootScope, $mdSidenav, $mdBottom
 
 
 
+    $rootScope.getLatLngs = function (item){
+
+        $rootScope.clickedItem = item.attributes;
+
+    }
+
+
+
 
 });

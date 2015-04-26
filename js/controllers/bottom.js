@@ -4,19 +4,28 @@
 
 var app = angular.module('leapspot');
 
-app.controller('ListBottomSheetCtrl', ['$scope', '$mdSidenav', '$http', function($scope, $mdSidenav, $http){
-    $scope.items = [
-        { name: 'Share', icon: 'share-arrow' },
-        { name: 'Upload', icon: 'upload' },
-        { name: 'Copy', icon: 'copy' },
-        { name: 'Print this page', icon: 'print' },
-    ];
-    $scope.listItemClick = function($index) {
-        var clickedItem = $scope.items[$index];
-        $mdBottomSheet.hide(clickedItem);
-    };
+app.controller('ListBottomSheetCtrl', ['$scope', '$window', '$rootScope', function($scope, $window, $rootScope){
 
-    $scope.staticMap = 'https://api.tiles.mapbox.com/v4/examples.map-zr0njcqy/pin-l-park+482(-73.975,40.767)/-73.975,40.767,17/500x300.png?access_token=pk.eyJ1IjoicnJsYXJhIiwiYSI6IkplNEFnUVUifQ.e5zd5QyoERZ2IHX0EU5pwg';
+
+    console.log("$rootScope.clickedItem", $rootScope.clickedItem);
+
+
+    $scope.popupHeight = $window.innerHeight - 100;
+    $scope.popupWidth = $window.innerWidth - 50;
+
+    if ($scope.popupWidth > 1280){
+        $scope.popupWidth = 1280;
+    }
+
+    if ($scope.popupHeight > 1280){
+        $scope.popupHeight = 1280;
+    }
+
+    console.log($scope.popupHeight);
+
+    $scope.staticMap = 'https://api.tiles.mapbox.com/v4/examples.map-zr0njcqy/pin-l-park+482('+$rootScope.clickedItem.longitude+','+$rootScope.clickedItem.latitude+')/'+$rootScope.clickedItem.longitude+','+$rootScope.clickedItem.latitude+',13/'+ $scope.popupWidth + 'x' + $scope.popupHeight + '.png?access_token=pk.eyJ1IjoicnJsYXJhIiwiYSI6IkplNEFnUVUifQ.e5zd5QyoERZ2IHX0EU5pwg';
+
+
 
 
 }]);
