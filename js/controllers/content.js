@@ -3,8 +3,9 @@
  */
 
 //var app = angular.module('leapspot');
+Parse.initialize(keys.one, keys.two);
 
-app.controller('ContentCtrl', function($scope, $rootScope, $mdSidenav, $mdBottomSheet, dataFactory){
+app.controller('ContentCtrl', function($scope, $rootScope, $mdSidenav, $mdBottomSheet, dataFactory, parsePersistence, parseQuery){
 
     $scope.toggleSidenav = function(menuId) {
         $mdSidenav(menuId).toggle();
@@ -27,20 +28,34 @@ app.controller('ContentCtrl', function($scope, $rootScope, $mdSidenav, $mdBottom
         total: 0
     }
 
+    $scope.loadingMoments = false;
+
     // retrieve a list of 1000 items from server and the total number of items
     $scope.find = function() {
 
-        //dataFactory.getData('HawaiiTrip').then(function (data) {
-        //        console.log(data);
-        //        $rootScope.data.items = data;
-        //    });
+        $scope.loadingMoments = true;
 
-        dataFactory.getData('HawaiiTrip', function (data) {
-            console.log(data);
-            $rootScope.data.items = data;
-        });
+        var query = parseQuery.new('HawaiiTrip');
+
+        query.limit(1000);
+        query.descending("createAt");
+
+        parseQuery.find(query)
+            .then(function(results) {
+                $scope.loadingMoments = false;
+                    $scope.data.items = results;
+                //console.log(results);
+                // nested promise :)
+            }, function(error) {
+                $scope.loadingMoments = false;
+                    alert(JSON.stringify(error));
+            });
 
     }
+    function initialLoadOfMoments(){
+        $scope.find();
+    }
+    initialLoadOfMoments();
 
 
 

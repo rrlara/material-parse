@@ -14,6 +14,9 @@
 
     <link rel="stylesheet" href="css/style.css" />
     <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.css' rel='stylesheet' />
+
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
       <script src="./js/angular.min.js"></script>
 
     <script src="http://www.parsecdn.com/js/parse-1.2.15.min.js"></script>
@@ -51,16 +54,24 @@
   <div layout="column" layout-fill>
       <md-toolbar class="md-default-theme">
           <div class="md-toolbar-tools">
-              <button ng-click="find()">Find all</button>
-              <md-button ng-click="showListBottomSheet($event)">Bottom</md-button>
+              <!--<button ng-click="find()">Find all</button>-->
+              <!--<md-button ng-click="showListBottomSheet($event)">Bottom</md-button>-->
+              <md-button class="md-icon-button" aria-label="Settings">
+                  <md-icon md-svg-icon="./img/menu.svg"></md-icon>
+              </md-button>
           </div>
       </md-toolbar>
       <div layout="column" id="content">
 
           <md-content >
+              <md-progress-circular md-mode="indeterminate" ng-show="loadingMoments" class="progressCircular"></md-progress-circular>
               <md-card ng-repeat="item in data.items">
-                  <!--<img src="./img/falls.jpg" class="md-card-image" alt="Washed Out">-->
-                  <img src="{{item.attributes.thumbnail._url}}" alt="Smiley face" width="400">(#{{item.attributes.comment}}) {{item.createdAt}}
+                  <div class="imageContainer">
+                  <img  src="{{item.attributes.thumbnail._url}}" alt="Smiley face" width="400">(#{{item.attributes.comment}}) {{item.createdAt}}
+                  <div class="map-marker transparent" ng-click="showListBottomSheet($event)">
+                      <i class="fa fa-map-marker"></i>
+                  </div>
+                      </div>
                   <md-card-content>
                       <h2 class="md-title">Paracosm</h2>
                       <p>
@@ -70,7 +81,7 @@
                   </md-card-content>
                   <md-action-bar layout="row" layout-align="end center">
                       <md-button ng-click="toggleSidenav('right')">Action 1</md-button>
-                      <md-button ng-click="showListBottomSheet($event)">Bottom</md-button>
+                      <!--<md-button ng-click="showListBottomSheet($event)"></md-button>-->
                   </md-action-bar>
               </md-card>
           </md-content>
