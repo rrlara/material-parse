@@ -14,6 +14,16 @@ html, body {
     height: calc(100%);
 }
 
+md-toolbar{
+    background-color: #50667f;
+}
+
+.cameraButton{
+    position: absolute;
+    right: 8px;
+    bottom: 15px;
+}
+
 #map-wrapper{
     height: 200px;
     background-color: #383838;
@@ -78,4 +88,29 @@ md-bottom-sheet{
     background-repeat: no-repeat;
     background-position: center;
 }
+
+.bottomBand{
+    width: 100%;
+    height: 60px;
+    position: absolute;
+    bottom: 4px;
+    z-index: 10
+}
+.transparentBottom{
+    /*background:rgba(255,255,255,0.5);*/
+    background:rgba(0,0,0,.5);
+}
+.bottomBand .md-title{
+    color: #ffffff;
+    font-size: 16px;
+}
+.bottomBand .md-subhead{
+    color: #ffffff;
+}
+
+.subheaderdemoBasicUsage .face {
+    border-radius: 30px;
+    border: 1px solid #ddd;
+    width: 48px;
+    margin: 16px; }
 

@@ -65,6 +65,34 @@ app.controller('ContentCtrl', function($scope, $rootScope, $mdSidenav, $mdBottom
 
     }
 
+    $scope.timeFromNow = function (dateAgo){
+
+        //var dateA = moment().subtract('days', 7);
+        //console.log(dateA.fromNow());
+        var dateNow = new Date();
+
+        var date1 = moment(dateAgo);
+        //var date2 = moment('2014-12-11');
+        console.log(date1.from(dateNow));
+
+        var daysAgo = moment(dateAgo).fromNow();
+
+        console.log(daysAgo);
+
+        return daysAgo;
+
+    }
+
+
+    $scope.todos = [
+        {
+            face : './img/profile.jpg',
+            what: 'Brunch this weekend?',
+            who: 'Rene Rodriguez',
+            when: '3:08PM',
+            notes: "GIS-Developer/Film-maker"
+        }]
+
 
 
 

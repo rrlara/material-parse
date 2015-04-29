@@ -34,6 +34,7 @@
       <script src="./js/angular-material.min.js"></script>
 
       <script src="./js/lib/resizable.js"></script>
+      <script src="./js/lib/moment.js"></script>
 
 
       <script src="config.js"></script>
@@ -56,57 +57,77 @@
   <body layout="column" ng-controller="ContentCtrl">
 
   <div layout="column" layout-fill>
-      <md-toolbar class="md-default-theme">
+      <md-toolbar class="md-default-theme" md-scroll-shrink>
           <div class="md-toolbar-tools">
-              <!--<button ng-click="find()">Find all</button>-->
-              <!--<md-button ng-click="showListBottomSheet($event)">Bottom</md-button>-->
               <md-button class="md-icon-button" aria-label="Settings" ng-click="toggleSidenav('left')">
                   <md-icon md-svg-icon="./img/menu.svg"></md-icon>
               </md-button>
+              <h2>
+                  <span>Travel Feed</span>
+              </h2>
+              <md-button class="md-icon-button" aria-label="More">
+                  <i class="fa fa-search"></i></i>
+              </md-button>
           </div>
       </md-toolbar>
+      <!--<md-toolbar md-scroll-shrink class="md-tall md-warn md-hue-3 md-default-theme">-->
+          <!--<span flex=""></span>-->
+          <!--<h2 class="md-toolbar-tools md-toolbar-tools-bottom">-->
+              <!--<span class="md-flex">Toolbar:</span>-->
+          <!--</h2>-->
+      <!--</md-toolbar>-->
       <div layout="column" id="content">
 
           <md-content >
               <md-progress-circular md-mode="indeterminate" ng-show="loadingMoments" class="progressCircular"></md-progress-circular>
               <md-card ng-repeat="item in data.items">
                   <div class="imageContainer">
-                  <img  src="{{item.attributes.thumbnail._url}}" alt="Smiley face" width="400">(#{{item.attributes.comment}}) {{item.createdAt}}
-                  <div class="map-marker transparent" ng-click="getLatLngs(item);showListBottomSheet($event)">
-                      <i class="fa fa-map-marker"></i>
-                  </div>
+                      <img  src="{{item.attributes.thumbnail._url}}" alt="Smiley face" width="400">
+                      <div class="map-marker transparent" ng-click="getLatLngs(item);showListBottomSheet($event)">
+                          <i class="fa fa-map-marker"></i>
                       </div>
+                      <div class="bottomBand transparentBottom">
+                          <span class="md-title">{{item.attributes.comment}}</span>
+                          <span class="md-subhead">{{timeFromNow(item.createdAt)}}</span>
+                      </div>
+                  </div>
                   <md-card-content>
-                      <h2 class="md-title">Paracosm</h2>
-                      <p>
-                          The titles of Washed Out's breakthrough song and the first single from Paracosm share the
-                          two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
-                      </p>
+
+                      <!--<p>-->
+                      <!--</p>-->
                   </md-card-content>
                   <md-action-bar layout="row" layout-align="end center">
                       <md-button>Action 1</md-button>
-                      <!--<md-button ng-click="showListBottomSheet($event)"></md-button>-->
                   </md-action-bar>
               </md-card>
           </md-content>
           <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
-              <md-toolbar class="md-theme-light">
-                  <h1 class="md-toolbar-tools">Sidenav Left</h1>
+              <md-toolbar class="md-tall md-warn md-hue-3 md-default-theme" >
+                  <span flex=""></span>
+                  <h2 class="md-toolbar-tools md-toolbar-tools-bottom">
+                      <span class="md-flex">Toolbar:</span>
+                  </h2>
               </md-toolbar>
-              <md-content layout-padding>
-                  <form>
-                      <md-input-container>
-                          <!--<label for="testInput">Test input</label>-->
-                          <!--<input type="text" id="testInput"-->
-                          <!--ng-model="data" md-sidenav-focus>-->
-                      </md-input-container>
-                  </form>
-                  <md-button ng-click="close()" class="md-primary">
-                      Close Sidenav Right
-                  </md-button>
+              <md-content layout-padding class="md-default-theme">
+                  <md-list layout-padding="" role="list" class="md-default-theme">
+                      <md-list-item class="md-3-line" ng-repeat="item in todos">
+                          <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />
+                          <div class="md-list-item-text">
+                              <h3>{{ item.who }}</h3>
+                              <h4>{{ item.what }}</h4>
+                              <p>{{ item.notes }}</p>
+                          </div>
+                      </md-list-item>
+                  </md-list>
               </md-content>
           </md-sidenav>
       </div>
+      <!--<button class="md-fab md-button md-default-theme cameraButton" ng-transclude="" aria-label="Eat cake">-->
+          <!--<div class="md-ripple-container"></div>-->
+      <!--</button>-->
+      <md-button class="md-fab md-mini cameraButton" aria-label="Eat cake">
+          <form action="POST"> <input type="file" name="pic"> <input type="submit"> </form>
+      </md-button>
   </div>
     
   </body>
