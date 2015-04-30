@@ -5,7 +5,7 @@
 //var app = angular.module('leapspot');
 Parse.initialize(keys.one, keys.two);
 
-app.controller('ContentCtrl', function($scope, $rootScope, $mdSidenav, $mdBottomSheet, dataFactory, parsePersistence, parseQuery){
+app.controller('ContentCtrl', function($scope, $rootScope, $mdSidenav, $mdBottomSheet, $mdDialog, dataFactory, parsePersistence, parseQuery){
 
     $scope.toggleSidenav = function(menuId) {
         $mdSidenav(menuId).toggle();
@@ -73,11 +73,11 @@ app.controller('ContentCtrl', function($scope, $rootScope, $mdSidenav, $mdBottom
 
         var date1 = moment(dateAgo);
         //var date2 = moment('2014-12-11');
-        console.log(date1.from(dateNow));
+        //console.log(date1.from(dateNow));
 
         var daysAgo = moment(dateAgo).fromNow();
 
-        console.log(daysAgo);
+        //console.log(daysAgo);
 
         return daysAgo;
 
@@ -93,6 +93,22 @@ app.controller('ContentCtrl', function($scope, $rootScope, $mdSidenav, $mdBottom
             notes: "GIS-Developer/Film-maker"
         }]
 
+
+
+    $scope.showAlert = function(ev) {
+        // Appending dialog to document.body to cover sidenav in docs app
+        // Modal dialogs should fully cover application
+        // to prevent interaction outside of dialog
+        $mdDialog.show(
+            $mdDialog.alert()
+                .parent(angular.element(document.body))
+                .title('This is an alert title')
+                .content('You can specify some description text in here.')
+                .ariaLabel('Alert Dialog Demo')
+                .ok('Got it!')
+                .targetEvent(ev)
+        );
+    };
 
 
 
