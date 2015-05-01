@@ -9,6 +9,7 @@ app.controller('ListBottomSheetCtrl', ['$scope', '$window', '$rootScope', functi
 
     console.log("$rootScope.clickedItem", $rootScope.clickedItem);
 
+    console.log('$window', $window);
 
     $scope.popupHeight = $window.innerHeight - 100;
     $scope.popupWidth = $window.innerWidth - 50;

@@ -90,7 +90,7 @@
       <!--</md-toolbar>-->
 
 
-      <div layout="column" id="content">
+      <div layout="column" id="content" class="clearfix">
 
 
                   <md-tabs md-dynamic-height md-border-bottom>
@@ -120,10 +120,10 @@
                       </md-tab>
                       <md-tab label="Map">
                           <md-content class="md-padding mapContainer" ng-controller="MapCtrl">
-                              <!--<div id="map">-->
-                                  <!--&lt;!&ndash;<div style="width: 100%; height: 200px;"></div>&ndash;&gt;-->
-                              <!--</div>-->
-                              <p><div id="map" ng-style="{height: popupHeight}"></div></p>
+                              <div id="map">
+                                  <!--<div style="width: 100%; height: 525px;"></div>-->
+                              </div>
+                              <!--<p><div id="map" ng-style="{height: popupHeight}"></div></p>-->
                           </md-content>
                       </md-tab>
                   </md-tabs>
@@ -131,42 +131,8 @@
 
 
 
-          <!--<md-content >-->
-              <!--<md-tabs class="md-accent" md-dynamic-height md-selected="data.selectedIndex" md-align-tabs="bottom">-->
-                  <!--<md-tab id="tab1">-->
-                      <!--<md-tab-label>feed</md-tab-label>-->
-                      <!--<md-tab-body>-->
-                          <!--<md-progress-circular md-mode="indeterminate" ng-show="loadingMoments" class="progressCircular"></md-progress-circular>-->
-                          <!--<md-card ng-repeat="item in data.items">-->
-                              <!--<div class="imageContainer">-->
-                                  <!--<img  src="{{item.attributes.thumbnail._url}}" alt="Smiley face" width="400">-->
-                                  <!--<div class="map-marker transparent" ng-click="getLatLngs(item);showListBottomSheet($event)">-->
-                                      <!--<i class="fa fa-map-marker"></i>-->
-                                  <!--</div>-->
-                                  <!--<div class="bottomBand transparentBottom">-->
-                                      <!--<span class="md-title">{{item.attributes.comment}}</span>-->
-                                      <!--<span class="md-subhead">{{timeFromNow(item.createdAt)}}</span>-->
-                                  <!--</div>-->
-                              <!--</div>-->
-                              <!--<md-card-content>-->
-                                  <!--&lt;!&ndash;<p>&ndash;&gt;-->
-                                  <!--&lt;!&ndash;</p>&ndash;&gt;-->
-                              <!--</md-card-content>-->
-                              <!--<md-action-bar layout="row" layout-align="end center">-->
-                                  <!--<md-button ng-click="showAlert($event)">Action 1</md-button>-->
-                              <!--</md-action-bar>-->
-                          <!--</md-card>-->
-                      <!--</md-tab-body>-->
-                  <!--</md-tab>-->
-                  <!--<md-tab id="tab2" >-->
-                      <!--<md-tab-label>Map</md-tab-label>-->
-                      <!--<md-tab-body ng-controller="MapCtrl">-->
-                          <!--<div id="map"></div>-->
-                      <!--</md-tab-body>-->
-                  <!--</md-tab>-->
-              <!--</md-tabs>-->
 
-          <!--</md-content>-->
+
           <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
               <md-toolbar class="md-tall profileImage" >
                   <span flex=""></span>
